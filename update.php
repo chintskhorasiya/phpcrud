@@ -39,6 +39,12 @@
         if (empty($mobile)) {
             $mobileError = 'Please enter Mobile Number';
             $valid = false;
+        } else if ( !filter_var($mobile,FILTER_VALIDATE_INT) ) {
+            $mobileError = 'Please enter a valid Mobile Number';
+            $valid = false;
+        } else if (strlen($mobile) > 11 || strlen($mobile) < 10) {
+            $mobileError = 'Please enter a valid Mobile Number';
+            $valid = false;
         }
          
         // update data
